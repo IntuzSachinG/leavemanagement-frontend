@@ -11,10 +11,10 @@ export function Navbar() {
 
         <div className="flex items-center gap-3">
           <Link href="/login">
-            <Button variant="ghost">Login</Button>
+            <Button variant="ghost" className="cursor-pointer">Login</Button>
           </Link>
           <Link href="/signup">
-            <Button>Sign Up</Button>
+            <Button className="cursor-pointer">Sign Up</Button>
           </Link>
         </div>
       </div>

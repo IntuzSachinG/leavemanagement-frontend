@@ -110,12 +110,12 @@ export default function AdminLeavesPage() {
     if (!pendingAction) return;
 
     try {
-      if (pendingAction.type === "approve" || pendingAction.type === "reject") {
+      if (pendingAction.type === "approve") {
         await approveLeave(pendingAction.leave.id);
-          toast.success("Leave approved successfully");
-      } else {
+          toast.success("Leave Approved Successfully");
+      } else if( pendingAction.type === "reject") {
         await rejectLeave(pendingAction.leave.id);
-          toast.success("Leave rejected successfully");
+          toast.success("Leave Rejected Successfully");
       }
 
       

@@ -11,6 +11,7 @@ interface DepartmentFormModalProps {
   department?: Department | null;
   onClose: () => void;
   onSubmit: (payload: { name: string }) => Promise<void>;
+   
 }
 
 export function DepartmentFormModal({
@@ -33,7 +34,9 @@ export function DepartmentFormModal({
     try {
       await onSubmit({ name });
       onClose();
-    } finally {
+    } catch{
+      return;
+    }finally {
       setSubmitting(false);
     }
   }
@@ -43,7 +46,7 @@ export function DepartmentFormModal({
       open={open}
       onClose={onClose}
       title={department ? "Edit department" : "Add department"}
-      description="Department setup stays isolated in a small modal so the page remains easy to read."
+      description="Add Departments"
     >
       <form className="space-y-5" onSubmit={handleSubmit}>
         <Input

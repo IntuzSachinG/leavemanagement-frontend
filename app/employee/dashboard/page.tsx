@@ -12,6 +12,7 @@ import {
 import { Employee, LeaveRecord, LeaveSummary } from "@/lib/types";
 import { useAuth } from "@/contexts/authContext";
 import { formatDate } from "@/lib/dateFormat";
+import { StatusBadge } from "@/components/ui/statusBadge";
 
 export default function EmployeeDashboardPage() {
   const { user } = useAuth();
@@ -83,9 +84,8 @@ export default function EmployeeDashboardPage() {
               <div key={leave.id} className="rounded-3xl bg-slate-50 p-4">
                 <div className="flex items-center justify-between gap-3">
                   <p className="font-semibold text-slate-950">{leave.reason}</p>
-                  <span className="rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold text-white">
-                    {leave.status}
-                  </span>
+                 
+                   <StatusBadge value={leave.status} />
                 </div>
                 <p className="mt-2 text-sm text-slate-600">
                   {formatDate(leave.startDate)} to {formatDate(leave.endDate)}

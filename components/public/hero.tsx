@@ -53,13 +53,13 @@ export function Hero() {
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link href="/login">
-              <Button className="w-full sm:w-auto">
+              <Button className="w-full sm:w-auto cursor-pointer">
                 Start with Login
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
             <Link href="/signup">
-              <Button variant="secondary" className="w-full sm:w-auto">
+              <Button variant="secondary" className="w-full sm:w-auto cursor-pointer">
                 Create Employee Account
               </Button>
             </Link>

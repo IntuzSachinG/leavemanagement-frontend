@@ -71,7 +71,6 @@ export default function AdminEmployeesPage() {
     password: string;
     role: "admin" | "manager" | "employee";
     gender: "male" | "female" | "other";
-    mobile: string;
     departmentId: string;
     status: "active" | "inactive";
   }) {

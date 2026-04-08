@@ -13,7 +13,6 @@ export type EmployeeFormValue = {
   password: string;
   role: Role;
   gender: "male" | "female" | "other";
-  mobile: string;
   departmentId: string;
   status: "active" | "inactive";
 };
@@ -45,7 +44,6 @@ function getInitialValues(
     password: "",
     role: lockRole ?? employee?.role ?? "employee",
     gender: employee?.gender ?? "male",
-    mobile: employee?.mobile ?? "",
     departmentId: lockDepartmentId ?? employee?.departmentId ?? "",
     status: employee?.status ?? "active",
   };
@@ -82,6 +80,8 @@ export function EmployeeFormModal({
     try {
       await onSubmit(values);
       onClose();
+    } catch{
+      return;
     } finally {
       setSubmitting(false);
     }
@@ -92,7 +92,7 @@ export function EmployeeFormModal({
       open={open}
       onClose={onClose}
       title={mode === "create" ? "Add employee" : "Edit employee"}
-      description="Keep employee records clean and separated from the page layout."
+      description="Add employee"
     >
       <form className="grid gap-4 md:grid-cols-2" onSubmit={handleSubmit}>
         <Input
@@ -126,7 +126,6 @@ export function EmployeeFormModal({
         />
         <Input
           label="Mobile"
-          value={values.mobile}
           onChange={(event) =>
             setValues((current) => ({ ...current, mobile: event.target.value }))
           }

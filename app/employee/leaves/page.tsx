@@ -84,7 +84,7 @@ export default function EmployeeLeavesPage() {
 
     try {
       await cancelLeave(cancelTarget.id);
-      toast.success("Request Cancel successfully.");
+      toast.success("Request Cancel Successfully.");
       setCancelTarget(null);
       await loadData();
     } catch (error) {
