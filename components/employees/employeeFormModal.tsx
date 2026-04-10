@@ -1,6 +1,6 @@
 "use client";
 
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Department, Employee, Role } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -80,7 +80,7 @@ export function EmployeeFormModal({
     try {
       await onSubmit(values);
       onClose();
-    } catch{
+    } catch {
       return;
     } finally {
       setSubmitting(false);
@@ -130,7 +130,7 @@ export function EmployeeFormModal({
             setValues((current) => ({ ...current, mobile: event.target.value }))
           }
         />
-        <Select
+        {/* <Select
           label="Role"
           value={values.role}
           onChange={(event) =>
@@ -146,7 +146,25 @@ export function EmployeeFormModal({
               {role.charAt(0).toUpperCase() + role.slice(1)}
             </option>
           ))}
-        </Select>
+        </Select> */}
+        {!lockRole && (
+          <Select
+            label="Role"
+            value={values.role}
+            onChange={(event) =>
+              setValues((current) => ({
+                ...current,
+                role: event.target.value as Role,
+              }))
+            }
+          >
+            {roleOptions.map((role) => (
+              <option key={role} value={role}>
+                {role}
+              </option>
+            ))}
+          </Select>
+        )}
         <Select
           label="Gender"
           value={values.gender}
@@ -180,7 +198,7 @@ export function EmployeeFormModal({
             </option>
           ))}
         </Select>
-        {showStatus ? (
+        {/* {showStatus ? (
           <Select
             label="Status"
             value={values.status}
@@ -194,7 +212,7 @@ export function EmployeeFormModal({
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
           </Select>
-        ) : null}
+        ) : null} */}
         <div className="flex gap-3 md:col-span-2 md:justify-end">
           <Button variant="secondary" onClick={onClose}>
             Cancel

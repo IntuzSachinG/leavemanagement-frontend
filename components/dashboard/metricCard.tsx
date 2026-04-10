@@ -18,11 +18,11 @@ export function MetricCard({
           <p className="text-sm font-medium text-slate-500">{label}</p>
           <h3 className="mt-3 text-4xl font-bold text-slate-950">{value}</h3>
         </div>
-        <span
+        {/* <span
           className={`flex h-11 w-11 items-center justify-center rounded-2xl ${accent}`}
         >
           <ArrowUpRight className="h-5 w-5" />
-        </span>
+        </span> */}
       </div>
       <p className="mt-4 text-sm text-slate-600">{hint}</p>
     </article>

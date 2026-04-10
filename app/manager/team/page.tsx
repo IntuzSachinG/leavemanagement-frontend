@@ -99,8 +99,13 @@ export default function ManagerTeamPage() {
         open={isDialogOpen}
         mode="create"
         departments={departments}
-        managerMode
-        managerDepartmentId={user?.departmentId}
+        // managerMode
+        // managerDepartmentId={user?.departmentId}
+        lockRole="employee"
+        lockDepartmentId={user?.departmentId}
+        departmentOptions={departments.filter(
+          (d)=>d.id === user?.departmentId
+        )}
         onClose={() => setDialogOpen(false)}
         onSubmit={handleCreateEmployee}
       />
