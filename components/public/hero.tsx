@@ -58,11 +58,11 @@ export function Hero() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/signup">
+            {/* <Link href="/signup">
               <Button variant="secondary" className="w-full sm:w-auto cursor-pointer">
                 Create Employee Account
               </Button>
-            </Link>
+            </Link> */}
           </div>
           <div className="mt-8 grid gap-3 sm:grid-cols-3">
             {highlights.map((highlight) => (

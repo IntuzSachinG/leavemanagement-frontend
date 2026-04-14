@@ -7,9 +7,9 @@ export default function LoginPage() {
     <AuthShell
       title="Login to your workspace"
       subtitle="Connect with your routes"
-      altLabel="Sign up"
+      // altLabel="Sign up"
       altHref="/signup"
-      altText="Need an employee account?"
+      // altText="Need an employee account?"
     >
       <LoginForm />
     </AuthShell>

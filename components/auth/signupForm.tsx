@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { useAuth } from "@/contexts/authContext";
+import { roleDefaultRoute } from "@/lib/constants/navigation";
 
 type SignupValues = {
   name: string;
@@ -45,22 +46,42 @@ export function SignupForm() {
 
  
 
-  async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitting(true);
+  // async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
+  //   event.preventDefault();
+  //   setSubmitting(true);
 
-    try {
-      await signup(values);
-      toast.success("Signup successfully");
-      router.push("/login");
-    } catch (error) {
-      toast.error(
-        error instanceof Error ? error.message : "Unable to create account.",
-      );
-    } finally {
-      setSubmitting(false);
-    }
+  //   try {
+  //     await signup(values);
+  //     toast.success("Signup successfully");
+  //     router.push("/login");
+  //   } catch (error) {
+  //     toast.error(
+  //       error instanceof Error ? error.message : "Unable to create account.",
+  //     );
+  //   } finally {
+  //     setSubmitting(false);
+  //   }
+  // }
+
+
+  async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
+  event.preventDefault();
+  setSubmitting(true);
+
+  try {
+    const user = await signup(values); 
+
+    toast.success("Signup successfully");
+
+    router.push(roleDefaultRoute[user.role]); 
+  } catch (error) {
+    toast.error(
+      error instanceof Error ? error.message : "Unable to create account.",
+    );
+  } finally {
+    setSubmitting(false);
   }
+}
 
   return (
     <form className="grid gap-5 md:grid-cols-2" onSubmit={handleSubmit}>

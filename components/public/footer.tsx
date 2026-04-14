@@ -16,9 +16,9 @@ export function Footer() {
           <Link href="/login" className="transition hover:text-slate-950">
             Login
           </Link>
-          <Link href="/signup" className="transition hover:text-slate-950">
+          {/* <Link href="/signup" className="transition hover:text-slate-950">
             Create account
-          </Link>
+          </Link> */}
         </div>
       </div>
     </footer>

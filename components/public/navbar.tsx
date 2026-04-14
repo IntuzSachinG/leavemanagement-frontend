@@ -13,9 +13,9 @@ export function Navbar() {
           <Link href="/login">
             <Button variant="ghost" className="cursor-pointer">Login</Button>
           </Link>
-          <Link href="/signup">
+          {/* <Link href="/signup">
             <Button className="cursor-pointer">Sign Up</Button>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </header>

@@ -15,7 +15,8 @@ interface AuthContextValue {
   user: AuthUser | null;
   isLoading: boolean;
   login: (payload: LoginPayload) => Promise<AuthUser>;
-  signup: (payload: SignupPayload) => Promise<void>;
+  // signup: (payload: SignupPayload) => Promise<void>;
+  signup: (payload: SignupPayload) => Promise<AuthUser>;
   logout: () => Promise<void>;
 }
 
@@ -45,8 +46,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return currentUser.data;
   }
 
+  // async function signup(payload: SignupPayload) {
+  //   await signupUser(payload);
+  // }
   async function signup(payload: SignupPayload) {
-    await signupUser(payload);
+    const res = await signupUser(payload);
+    setUser(res.data);
+    return res.data;
   }
 
   async function logout() {

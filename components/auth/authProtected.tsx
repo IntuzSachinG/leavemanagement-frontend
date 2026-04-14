@@ -4,16 +4,16 @@ export function AuthShell({
   title,
   subtitle,
   children,
-  altLabel,
+  // altLabel,
   altHref,
-  altText,
+  // altText,
 }: {
   title: string;
   subtitle: string;
   children: React.ReactNode;
-  altLabel: string;
+  // altLabel: string;
   altHref: string;
-  altText: string;
+  // altText: string;
 }) {
   return (
     <main className="relative min-h-screen overflow-hidden px-4 py-8 sm:px-6 lg:px-8">
@@ -39,12 +39,12 @@ export function AuthShell({
           </div>
           <div className="glass-panel rounded-[40px] border border-white/70 p-6 shadow-glass sm:p-8">
             {children}
-            <p className="mt-6 text-center text-sm text-slate-600">
+            {/* <p className="mt-6 text-center text-sm text-slate-600">
               {altText}{" "}
               <Link href={altHref} className="font-semibold text-slate-950">
                 {altLabel}
               </Link>
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
